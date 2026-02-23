@@ -17,6 +17,11 @@
   display: grid;
   place-items: center;
 }
+.about__me-image img{
+      height: 374px;
+    width: 270px;
+    border-radius: 40px;
+}
 .about__me-image {
   border-radius: 2rem;
   overflow: hidden;

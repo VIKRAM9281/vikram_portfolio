@@ -1,5 +1,3 @@
-import "./portfolio.css";
-
 import IMG1 from "../../assets/Poker.jpg";
 import IMG2 from "../../assets/Dating.jpg";
 import IMG3 from "../../assets/poker1.jpg";
@@ -13,13 +11,12 @@ const data = [
 Developed a real-time online poker game similar to Rummy Circle using WebSocket technology for instant communication between players.
 
 Technologies Used:
-HTML5, CSS3, JavaScript, Bootstrap, React.js, Redux, WebSocket,Redux Toolkit, React Router, Webpack.
+HTML5, CSS3, JavaScript, Bootstrap, React.js, Redux, WebSocket, Redux Toolkit, React Router, Webpack.
 
-Team Size:
-5 Developers
+Team Size: 5 Developers
 
 Key Achievements:
-• Built authentication modules (Login, Registration, Forgot Password)
+• Built authentication modules
 • Implemented real-time gameplay updates
 • Delivered seamless multiplayer gaming experience
 `,
@@ -29,61 +26,89 @@ Key Achievements:
     image: IMG2,
     title: "Ziggata – Real-Time Dating & Streaming App (Client Project)",
     info: `
-Developed a real-time video streaming application where users join themed rooms such as Movies, Romance, Gaming, Cricket and Travel.
+Developed a real-time video streaming application with themed rooms.
 
 Technologies Used:
-React native, JavaScript, CSS3, WebRTC.,stun-server, socket.io, node js, 
-Team Size:
-4 Developers
+React Native, JavaScript, CSS3, WebRTC, STUN Server, Socket.IO, Node.js
+
+Team Size: 4 Developers
 
 Key Achievements:
-• Implemented peer-to-peer live video streaming using WebRTC
-• Enabled real-time user interaction through live chat
-• Built scalable streaming room interface
+• Peer-to-peer live streaming using WebRTC
+• Real-time live chat
+• Scalable streaming room interface
 `,
   },
   {
     id: 3,
     image: IMG3,
-    title: "Andar Bahar Game – Real-Time Casino Application (Client Project)",
+    title: "Andar Bahar Game – Real-Time Casino Application",
     info: `
-Worked as UI Developer responsible for building scalable and responsive UI based on Figma designs.
+Worked as UI Developer building scalable UI from Figma designs.
 
 Technologies Used:
-React.js, TypeScript, CSS3,tailwind-css,SCSS, Redux-toolkit, SignalR.
-Team Size:
-4 Developers
+React.js, TypeScript, Tailwind CSS, SCSS, Redux Toolkit, SignalR
 
 Responsibilities:
-• Developed reusable UI components
-• Implemented real-time updates using SignalR
-• Added form validation and error handling
-• Optimized UI performance for smooth gameplay
+• Reusable components
+• Real-time updates
+• Validation & error handling
+• UI performance optimization
 `,
   },
 ];
 
 const Portfolio = () => {
   return (
-    <section id="portfolio">
-      <h5 className="text-light">&lt; My Recent Work /&gt;</h5>
-      <h2>Professional Projects</h2>
+    <section id="portfolio" className="py-16 px-4">
 
-      <div className="container portfolio__container">
+      {/* Heading */}
+      <div className="text-center mb-12">
+        <h5 className="text-gray-400 text-sm">
+          {"< My Recent Work />"}
+        </h5>
+        <h2 className="text-3xl sm:text-4xl font-bold">
+          Professional Projects
+        </h2>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="max-w-7xl mx-auto grid gap-8 
+        sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
         {data.map((project) => (
-          <article key={project.id} className="portfolio__item">
-            
-            <div className="portfolio__item-image">
-              <img src={project.image} alt={project.title} />
+          <article
+            key={project.id}
+            className="bg-white/5 backdrop-blur-md border border-white/10
+            rounded-2xl overflow-hidden shadow-lg
+            hover:scale-105 transition duration-300 flex flex-col"
+          >
+
+            {/* Image */}
+            <div className="h-52 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            <div className="portfolio__content">
-              <h3>{project.title}</h3>
-              <p className="project__info">{project.info}</p>
+            {/* Content */}
+            <div className="p-6 flex flex-col gap-4">
+
+              <h3 className="text-lg font-semibold">
+                {project.title}
+              </h3>
+
+              <p className="text-gray-300 text-sm whitespace-pre-line leading-relaxed">
+                {project.info}
+              </p>
+
             </div>
 
           </article>
         ))}
+
       </div>
     </section>
   );

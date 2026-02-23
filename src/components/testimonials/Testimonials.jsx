@@ -1,75 +1,107 @@
-import './testimonials.css'
-import AVTR1 from '../../assets/avatar1.jpg'
-import AVTR2 from '../../assets/avatar2.jpg'
-import AVTR3 from '../../assets/avatar3.jpg'
-import AVTR4 from '../../assets/avatar4.jpg'
+import AVTR1 from "../../assets/avatar1.jpg";
+import AVTR2 from "../../assets/avatar2.jpg";
+import AVTR3 from "../../assets/avatar3.jpg";
+import AVTR4 from "../../assets/avatar4.jpg";
 
-// import Swiper core and required modules
-import {  Pagination } from 'swiper';
+import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
+import "swiper/css/pagination";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-const data =[
-{
-  avatar: AVTR1,
-  designation: "(Fullstack Developer)",
-  name : 'Anushka Gaikwad',
-  review: "vikram is an accomplished and seasoned professional. He bring an extensive background of success in fullstack development, along with the qualifications which are required to make a positive impact in this domain."
-},
-{
-  avatar: AVTR2,
-  name : 'Chetan Gaikwad',
-  designation: "(Software Architect)",
-  review: "vikram offer a combination of unique skills and competencies which he has developed through a lengthy and rewarding career. He has honed data driven decision making and attention to detailed skills "
-},
-{
-  avatar: AVTR3,
-  name : 'Dhiraj Tandulkar',
-  designation: "(Fullstack Developer)",
-  review: "vikram offer teamwork, less coding and problem-solving capabilities that you require in a Web-developer’s. role. He is always eager to discuss the possibility and improvements in collaborative team efforts."
-},
-{
-  avatar: AVTR4,
-  name : 'Neha Shinde',
-  designation: "(Software Engineer)",
-  review: "vikram is proficient in JavaScript, ReactJs, HTML/CSS and excellent in problem-solving. In previous roles, He has contributed to organizational improvements and attainment of key business targets."
-}
-]
+const data = [
+  {
+    avatar: AVTR1,
+    designation: "(Fullstack Developer)",
+    name: "Anushka Gaikwad",
+    review:
+      "Vikram is an accomplished professional with strong fullstack development expertise and consistently delivers impactful solutions.",
+  },
+  {
+    avatar: AVTR2,
+    name: "Chetan Gaikwad",
+    designation: "(Software Architect)",
+    review:
+      "Vikram combines strong technical skills with attention to detail and data-driven decision-making abilities.",
+  },
+  {
+    avatar: AVTR3,
+    name: "Dhiraj Tandulkar",
+    designation: "(Fullstack Developer)",
+    review:
+      "Vikram demonstrates excellent teamwork, coding and problem-solving skills while actively improving collaborative efforts.",
+  },
+  {
+    avatar: AVTR4,
+    name: "Neha Shinde",
+    designation: "(Software Engineer)",
+    review:
+      "Vikram is highly proficient in React, JavaScript and frontend technologies with strong problem-solving capability.",
+  },
+];
 
 const Testimonials = () => {
   return (
-    <section id="testimonials"> 
-    <h5 className='kk'>&lt; /Review &gt;</h5>
-    <h2>Testimonials</h2>
-    <Swiper className="container testimonials__container"
-       // install Swiper modules
-       modules={[ Pagination]}
-       spaceBetween={40}
-       slidesPerView={1}
-       pagination={{ clickable: true }}
-      >
-      
-    {
-    data.map(({avatar,name,review,designation}, index)=>{
-      return(
-        <SwiperSlide key = {index} className="testimonial">
-               <div className="client__avatar">
-                 <img src={avatar} alt={avatar}  />
-               </div>
-               <h5 className='client__name'>{name}</h5>
-               <h5>{designation}</h5>
-                 <small className='client__review'>{review}</small>
-             </SwiperSlide>  
-      )
-    })
-   }
-    </Swiper>
-    </section>
-  )
-}
+    <section id="testimonials" className="py-16 px-4">
 
-export default Testimonials
+      {/* Heading */}
+      <div className="text-center mb-12">
+        <h5 className="text-gray-400 text-sm">
+          {"< /Review >"}
+        </h5>
+        <h2 className="text-3xl sm:text-4xl font-bold">
+          Testimonials
+        </h2>
+      </div>
+
+      {/* Swiper */}
+      <Swiper
+        modules={[Pagination]}
+        spaceBetween={40}
+        slidesPerView={1}
+        autoplay={{ delay: 3000 }}
+        pagination={{ clickable: true }}
+        className="max-w-3xl mx-auto"
+      >
+        {data.map(({ avatar, name, review, designation }, index) => (
+          <SwiperSlide key={index}>
+
+            <div
+              className="bg-white/5 backdrop-blur-md border border-white/10
+              rounded-2xl p-8 text-center shadow-lg
+              flex flex-col items-center gap-4"
+            >
+
+              {/* Avatar */}
+              <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500">
+                <img
+                  src={avatar}
+                  alt={name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Name */}
+              <h5 className="text-lg font-semibold">
+                {name}
+              </h5>
+
+              <p className="text-blue-400 text-sm">
+                {designation}
+              </p>
+
+              {/* Review */}
+              <small className="text-gray-300 leading-relaxed max-w-xl">
+                {review}
+              </small>
+
+            </div>
+
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+  );
+};
+
+export default Testimonials;
