@@ -38,7 +38,7 @@ const Header = () => {
         {/* Scroll Down */}
         <a
           href="#contact"
-          className="absolute bottom-6 right-4 sm:right-10 text-sm text-gray-400 rotate-90 hidden md:block"
+          className="absolute top-1/2 right-4 sm:right-10 text-sm text-gray-400 rotate-90 hidden md:block"
         >
           Scroll Down →
         </a>
